@@ -1,6 +1,6 @@
-import { model, Schema } from 'mongoose';
+import { Schema } from 'mongoose';
 
-const SuperstarSchema = new Schema({
+export const SuperstarSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -17,10 +17,7 @@ const SuperstarSchema = new Schema({
     type: String,
     required: true,
   },
-  dateOfBirth: {
-    type: Date,
-    required: true,
-  },
+
   weight: {
     type: Number,
     required: true,
@@ -31,8 +28,6 @@ const SuperstarSchema = new Schema({
   },
   faction: {
     type: String,
-    required: true,
+    required: false,
   },
 });
-
-export default model('Superstar', SuperstarSchema);

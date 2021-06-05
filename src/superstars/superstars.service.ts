@@ -37,20 +37,6 @@ export class SuperstarsService {
     return this.superStarModel.findByIdAndUpdate(id, fieldsToUpdate, {
       new: true,
     });
-
-    // this.superStarModel
-    //   .findById(id)
-    //   .then((superstar) => {
-    //     superstar.name = fieldsToUpdate.name;
-    //     superstar.realName = fieldsToUpdate.realName;
-    //     superstar.age = fieldsToUpdate.age;
-    //     superstar.brand = fieldsToUpdate.brand;
-    //     superstar.weight = fieldsToUpdate.weight;
-    //     superstar.height = fieldsToUpdate.height;
-    //     superstar.faction = fieldsToUpdate.faction;
-    //     return superstar.save();
-    //   })
-    //   .catch((err) => console.log(err));
   }
 
   async deleteOne(id: string): Promise<Superstar> {

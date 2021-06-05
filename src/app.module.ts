@@ -8,9 +8,10 @@ import { FactionModule } from './faction/faction.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SuperstarsModule } from './superstars/superstars.module';
 import { SuperstarsController } from './superstars/superstars.controller';
+import { EventsModule } from './events/events.module';
 
 @Module({
-  imports: [TitlesModule, FactionModule, SuperstarsModule],
+  imports: [TitlesModule, FactionModule, SuperstarsModule, EventsModule],
   controllers: [AppController],
   providers: [AppService],
 })

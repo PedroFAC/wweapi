@@ -1,5 +1,5 @@
 import { Connection } from 'mongoose';
-import { SuperstarSchema } from './schemas/superstars.schema';
+import { SuperstarSchema } from './superstars.schema';
 
 export const superstarsProviders = [
   {
