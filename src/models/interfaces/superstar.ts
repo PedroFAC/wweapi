@@ -8,4 +8,6 @@ export interface Superstar extends Document {
   weight: number;
   height: number;
   faction?: string;
+  isLegend: boolean;
+  titles?: string[];
 }

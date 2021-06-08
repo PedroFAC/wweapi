@@ -10,11 +10,11 @@ export class SuperstarsService {
   ) {}
 
   async findAll(): Promise<Superstar[]> {
-    return this.superStarModel.find().exec();
+    return this.superStarModel.find().populate('faction').exec();
   }
 
   async findOne(id: string): Promise<Superstar> {
-    return this.superStarModel.findById(id);
+    return this.superStarModel.findById(id).populate('faction');
   }
 
   async create(superstar: Superstar): Promise<Superstar> {
@@ -34,9 +34,11 @@ export class SuperstarsService {
       faction?: string;
     },
   ): Promise<Superstar> {
-    return this.superStarModel.findByIdAndUpdate(id, fieldsToUpdate, {
-      new: true,
-    });
+    return this.superStarModel
+      .findByIdAndUpdate(id, fieldsToUpdate, {
+        new: true,
+      })
+      .populate('faction');
   }
 
   async deleteOne(id: string): Promise<Superstar> {

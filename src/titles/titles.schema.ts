@@ -10,11 +10,13 @@ export const TitleSchema = new Schema({
     required: true,
   },
   currentWinner: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'Superstar',
     required: true,
   },
   event: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'Event',
     required: true,
   },
 });

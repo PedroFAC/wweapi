@@ -10,11 +10,18 @@ export class TitlesService {
   ) {}
 
   async findAll(): Promise<Title[]> {
-    return this.titleModel.find().exec();
+    return this.titleModel
+      .find()
+      .populate('currentWinner')
+      .populate('event')
+      .exec();
   }
 
   async findOne(id: string): Promise<Title> {
-    return this.titleModel.findById(id);
+    return this.titleModel
+      .findById(id)
+      .populate('currentWinner')
+      .populate('event');
   }
 
   async create(superstar: Title): Promise<Title> {
@@ -31,9 +38,12 @@ export class TitlesService {
       event?: string;
     },
   ): Promise<Title> {
-    return this.titleModel.findByIdAndUpdate(id, fieldsToUpdate, {
-      new: true,
-    });
+    return this.titleModel
+      .findByIdAndUpdate(id, fieldsToUpdate, {
+        new: true,
+      })
+      .populate('currentWinner')
+      .populate('event');
   }
 
   async deleteOne(id: string): Promise<Title> {

@@ -17,7 +17,6 @@ export const SuperstarSchema = new Schema({
     type: String,
     required: true,
   },
-
   weight: {
     type: Number,
     required: true,
@@ -27,7 +26,17 @@ export const SuperstarSchema = new Schema({
     required: true,
   },
   faction: {
-    type: String,
+    type: Schema.Types.ObjectId,
+    ref: 'Faction',
     required: false,
+  },
+  titles: {
+    type: [Schema.Types.ObjectId],
+    ref: 'Title',
+    required: false,
+  },
+  isLegend: {
+    type: Boolean,
+    required: true,
   },
 });
